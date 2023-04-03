@@ -1,3 +1,9 @@
+# NOTE
+
+This Repository still in progress.. Stay tune :) 
+
+Last Update readme : 3 Apr 2023 10:20PM UTC+7
+
 # Order Management System
 
 This is a simple project of order management system and build using latest version of .NET
