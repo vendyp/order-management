@@ -6,8 +6,7 @@ This is a simple project of order management system and build using latest versi
 
 1. Install [.NET][download_dotnet] latest version (Windows, Linux supported)
 2. Install SQL Server Express or Developer
-3. Install dotnet ef tools using command "dotnet tool install --global dotnet-ef"
-	4. If already installed use this to update to latest version available "dotnet tool update --global dotnet-ef"
+3. Install dotnet ef tools using command "dotnet tool install --global dotnet-ef", if already installed use this to update to latest version available "dotnet tool update --global dotnet-ef"
 
 # Actors
 
@@ -33,19 +32,19 @@ This role can access order, product, mostly data entry administrator.
 
 # Features
 
-## User Management
+## User
 
 TBD
 
-## Product Management
+## Product
 
 TBD
 
-### Product Stock Management
+### Stock
 
 TBD
 
-## Order Management
+## Order
 
 TBD
 
@@ -58,6 +57,10 @@ TBD
 TBD
 
 # ERD (Entity Relation Diagram)
+
+TBD
+
+# Docker Support
 
 TBD
 
