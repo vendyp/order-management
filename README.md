@@ -14,7 +14,7 @@ This repository still in-progress :)
    1. Client API
    2. CMS/Admin API
 2. .NET MAUI Client
-3. Angular Application for CMS
+3. React/next.js Application for CMS
 
 # Architecture
 
