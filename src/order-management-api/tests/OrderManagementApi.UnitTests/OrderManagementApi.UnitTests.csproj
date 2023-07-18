@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\OrderManagementApi.WebApi\OrderManagementApi.WebApi.csproj" />
+    <ProjectReference Include="..\..\src\OrderManagementApi.WebApi.Client\OrderManagementApi.WebApi.Client.csproj" />
   </ItemGroup>
 
 </Project>
