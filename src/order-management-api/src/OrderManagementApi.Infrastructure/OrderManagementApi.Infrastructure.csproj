@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrderManagementApi.Core\OrderManagementApi.Core.csproj" />
+    <ProjectReference Include="..\OrderManagementApi.Persistence.SqlServer\OrderManagementApi.Persistence.SqlServer.csproj" />
+    <ProjectReference Include="..\Shared\OrderManagementApi.Shared.Infrastructure\OrderManagementApi.Shared.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
