@@ -1,5 +1,7 @@
 # Order Management Solution
 
+[![.NET](https://github.com/vendyp/order-management/actions/workflows/order-management-api-ci-build.yml/badge.svg?branch=main)](https://github.com/vendyp/order-management/actions/workflows/order-management-api-ci-build.yml)
+
 This is an example for quite simple implementation order management solution full end to end from client, admin, and web api built using .net stack and angular.
 
 This repository still in-progress :)
