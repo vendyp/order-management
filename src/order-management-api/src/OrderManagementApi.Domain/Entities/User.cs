@@ -10,6 +10,7 @@ public sealed class User : BaseEntity, IEntity
         Username = string.Empty;
         UserRoles = new HashSet<UserRole>();
         UserTokens = new HashSet<UserToken>();
+        UserScopes = new HashSet<UserScope>();
     }
 
     public User(string username) : this()
@@ -36,6 +37,7 @@ public sealed class User : BaseEntity, IEntity
 
     public ICollection<UserRole> UserRoles { get; }
     public ICollection<UserToken> UserTokens { get; }
+    public ICollection<UserScope> UserScopes { get; set; }
 
     public void UpdatePassword(string salt, string password)
     {
