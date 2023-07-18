@@ -1,10 +1,10 @@
 ﻿namespace OrderManagementApi.WebApi.Scopes;
 
-public class ScopeManager
+public class ScopeManager : IScopeManager
 {
     private readonly List<string> _list;
 
-    private ScopeManager()
+    public ScopeManager()
     {
         _list = new List<string>();
         var typeOfIScope = typeof(IScope);

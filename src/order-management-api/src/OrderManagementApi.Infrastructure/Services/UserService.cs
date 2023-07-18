@@ -17,21 +17,17 @@ public class UserService : IUserService
         _salter = salter;
     }
 
+    public IQueryable<User> GetBaseUserQuery() => _dbContext.Set<User>()
+        .Include(e => e.UserScopes)
+        .AsQueryable();
+
     public Task<User?> GetUserByIdAsync(Guid userId, CancellationToken cancellationToken)
-        => _dbContext.Set<User>()
-            .Include(e => e.UserRoles)
-            .ThenInclude(e => e.Role!.RoleScopes)
-            .Include(e => e.UserRoles)
-            .ThenInclude(e => e.Role!.RoleScopes)
+        => GetBaseUserQuery()
             .Where(e => e.UserId == userId)
             .FirstOrDefaultAsync(cancellationToken);
 
     public Task<User?> GetUserByUsernameAsync(string username, CancellationToken cancellationToken)
-        => _dbContext.Set<User>()
-            .Include(e => e.UserRoles)
-            .ThenInclude(e => e.Role!.RoleScopes)
-            .Include(e => e.UserRoles)
-            .ThenInclude(e => e.Role!.RoleScopes)
+        => GetBaseUserQuery()
             .Where(e => e.NormalizedUsername == username.ToUpper())
             .FirstOrDefaultAsync(cancellationToken);
 

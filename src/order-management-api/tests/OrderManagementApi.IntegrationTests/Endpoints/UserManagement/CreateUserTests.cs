@@ -1,8 +1,6 @@
 ﻿using OrderManagementApi.Core.Abstractions;
-using OrderManagementApi.Domain.Extensions;
 using OrderManagementApi.Shared.Abstractions.Databases;
 using OrderManagementApi.Shared.Abstractions.Encryption;
-using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.WebApi.Endpoints.UserManagement;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,7 +37,6 @@ public class CreateUserTests
             Username = "admin2",
             Password = "Test@12345",
             Fullname = "Super Administrator",
-            Role = RoleExtensions.AdministratorId,
             EmailAddress = "test@test.com"
         };
 

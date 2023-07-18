@@ -1,5 +1,4 @@
 ﻿using OrderManagementApi.Domain.Entities;
-using OrderManagementApi.Domain.Extensions;
 using OrderManagementApi.Shared.Abstractions.Clock;
 using OrderManagementApi.Shared.Abstractions.Encryption;
 
@@ -36,8 +35,6 @@ public static class DefaultUser
             CreatedAt = clock.CurrentDate(),
             CreatedAtServer = clock.CurrentServerDate()
         };
-
-        newUser.UserRoles.Add(new UserRole { UserId = newUser.UserId, RoleId = RoleExtensions.SuperAdministratorId });
 
         return newUser;
     }

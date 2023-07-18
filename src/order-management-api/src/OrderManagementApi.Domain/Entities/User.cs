@@ -8,7 +8,6 @@ public sealed class User : BaseEntity, IEntity
     {
         UserId = Guid.NewGuid();
         Username = string.Empty;
-        UserRoles = new HashSet<UserRole>();
         UserTokens = new HashSet<UserToken>();
         UserScopes = new HashSet<UserScope>();
     }
@@ -35,8 +34,7 @@ public sealed class User : BaseEntity, IEntity
     public string? FullName { get; set; }
     public string? Email { get; set; }
 
-    public ICollection<UserRole> UserRoles { get; }
-    public ICollection<UserToken> UserTokens { get; }
+    public ICollection<UserToken> UserTokens { get; set; }
     public ICollection<UserScope> UserScopes { get; set; }
 
     public void UpdatePassword(string salt, string password)

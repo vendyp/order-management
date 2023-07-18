@@ -12,7 +12,6 @@ public class UserTests
         var user = new User();
         user.UserId.ShouldNotBe(Guid.Empty);
         user.UserTokens.ShouldNotBeNull();
-        user.UserRoles.ShouldNotBeNull();
         
         const string s = "test";
         user.Username = s;

@@ -1,10 +1,8 @@
 ﻿using OrderManagementApi.Core.Abstractions;
 using OrderManagementApi.Core.Modules;
-using OrderManagementApi.Domain.Extensions;
 using OrderManagementApi.Shared.Abstractions.Contexts;
 using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.WebApi.Dto;
-using OrderManagementApi.WebApi.Scopes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -55,17 +53,6 @@ public class GetMe : BaseEndpoint<UserDto>
             LastUpdatedAt = user.LastUpdatedAt,
             LastUpdatedByName = user.LastUpdatedByName
         };
-        dto.Scopes.AddRange(user.UserRoles.Select(e => e.Role).SelectMany(e => e!.RoleScopes).Select(e => e.Name));
-        dto.Modules.AddRange(user.UserRoles.Select(e => e.Role).SelectMany(e => e!.RoleModules).Select(e => e.Name));
-
-        if (!user.UserRoles.Any(e => e.RoleId == RoleExtensions.SuperAdministratorId))
-            return Ok(dto);
-
-        dto.Scopes.Clear();
-        dto.Modules.Clear();
-
-        dto.Scopes.AddRange(ScopeManager.Instance.GetAllScopes());
-        dto.Modules.AddRange(_moduleManager.GetAllModuleName());
 
         return Ok(dto);
     }

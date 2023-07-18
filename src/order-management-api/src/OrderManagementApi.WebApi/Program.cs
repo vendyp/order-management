@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using OrderManagementApi.WebApi.Scopes;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,7 @@ builder.Host.UseLogging();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddSingleton<IAuthManager, AuthManager>();
+builder.Services.AddSingleton<IScopeManager, ScopeManager>();
 builder.Services.AddSwaggerGen2();
 builder.Services.AddAuth();
 

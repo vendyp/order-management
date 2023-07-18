@@ -34,8 +34,6 @@ public abstract class BaseServiceFixture : IDisposable
         var salter = ServiceProvider.GetRequiredService<ISalter>();
         var rng = ServiceProvider.GetRequiredService<IRng>();
         var clock = ServiceProvider.GetRequiredService<IClock>();
-        dbContext.Insert(new Role(RoleExtensions.AdministratorId, "Administrator"));
-        dbContext.Insert(new Role(RoleExtensions.SuperAdministratorId, "Super Administrator"));
         dbContext.Insert(DefaultUser.SuperAdministrator(rng, salter, clock));
         dbContext.SaveChangesAsync().GetAwaiter().GetResult();
     }

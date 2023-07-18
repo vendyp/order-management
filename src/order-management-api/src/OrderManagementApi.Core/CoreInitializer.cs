@@ -1,6 +1,5 @@
 ﻿using OrderManagementApi.Domain;
 using OrderManagementApi.Domain.Entities;
-using OrderManagementApi.Domain.Extensions;
 using OrderManagementApi.Shared.Abstractions.Clock;
 using OrderManagementApi.Shared.Abstractions.Databases;
 using OrderManagementApi.Shared.Abstractions.Encryption;
@@ -25,35 +24,9 @@ public class CoreInitializer : IInitializer
 
     public async Task ExecuteAsync(CancellationToken cancellationToken)
     {
-        await AddSuperAdministratorRoleAsync(cancellationToken);
-
-        await AddAdministratorRoleAsync(cancellationToken);
-
         await AddSuperAdministratorAsync(cancellationToken);
 
         await _dbContext.SaveChangesAsync(cancellationToken);
-    }
-
-    private async Task AddAdministratorRoleAsync(CancellationToken cancellationToken)
-    {
-        if (await _dbContext.Set<Role>().AnyAsync(e => e.RoleId == RoleExtensions.AdministratorId,
-                cancellationToken: cancellationToken))
-            return;
-
-        var role = new Role(RoleExtensions.AdministratorId, RoleExtensions.Administrator);
-
-        _dbContext.Insert(role);
-    }
-
-    private async Task AddSuperAdministratorRoleAsync(CancellationToken cancellationToken)
-    {
-        if (await _dbContext.Set<Role>().AnyAsync(e => e.RoleId == RoleExtensions.SuperAdministratorId,
-                cancellationToken: cancellationToken))
-            return;
-
-        var role = new Role(RoleExtensions.SuperAdministratorId, RoleExtensions.SuperAdministrator);
-
-        _dbContext.Insert(role);
     }
 
     private async Task AddSuperAdministratorAsync(CancellationToken cancellationToken)

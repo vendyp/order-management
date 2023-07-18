@@ -1,6 +1,5 @@
 ﻿using OrderManagementApi.Core.Abstractions;
 using OrderManagementApi.Domain.Entities;
-using OrderManagementApi.Domain.Extensions;
 using OrderManagementApi.Shared.Abstractions.Databases;
 using OrderManagementApi.Shared.Abstractions.Encryption;
 using OrderManagementApi.Shared.Abstractions.Models;
@@ -62,12 +61,6 @@ public class CreateUser : BaseEndpointWithoutResponse<CreateUserRequest>
             LastPasswordChangeAt = DateTime.UtcNow,
             FullName = request.Fullname
         };
-
-        user.UserRoles.Add(
-            new UserRole
-            {
-                RoleId = RoleExtensions.AvailableRoles.First(e => e.Key == request.Role).Key
-            });
 
         _dbContext.Insert(user);
 

@@ -1,5 +1,4 @@
 ﻿using OrderManagementApi.Domain.Entities;
-using OrderManagementApi.Domain.Extensions;
 using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.UnitTests.Builders;
 using OrderManagementApi.WebApi.Endpoints.UserManagement;
@@ -25,7 +24,6 @@ public class CreateUserUnitTests
             Username = "admin",
             Password = "Qwerty@1234",
             Fullname = "Administrator",
-            Role = RoleExtensions.AdministratorId,
             EmailAddress = "test@test.com"
         };
 
@@ -44,13 +42,9 @@ public class CreateUserUnitTests
                 entity.Username.ShouldBe(request.Username);
                 entity.NormalizedUsername.ShouldBe(request.Username.ToUpper());
                 entity.FullName.ShouldBe(request.Fullname);
-                entity.UserRoles.ShouldNotBeEmpty();
-                entity.UserRoles.Count.ShouldBe(1);
                 entity.Salt.ShouldBe(salt);
                 entity.Password.ShouldNotBeNullOrWhiteSpace();
                 entity.Password.ShouldBe(hash);
-                var first = entity.UserRoles.First();
-                first.RoleId.ShouldBe(RoleExtensions.AdministratorId);
             });
 
         var createUser = new CreateUser(dbContext.Object,
@@ -72,7 +66,6 @@ public class CreateUserUnitTests
                 Username = string.Empty,
                 Password = string.Empty,
                 Fullname = string.Empty,
-                Role = string.Empty,
                 EmailAddress = null
             }
         };
@@ -84,7 +77,6 @@ public class CreateUserUnitTests
                 Username = string.Empty,
                 Password = string.Empty,
                 Fullname = string.Empty,
-                Role = string.Empty,
                 EmailAddress = "lorep ipsum"
             }
         };
@@ -96,7 +88,6 @@ public class CreateUserUnitTests
                 Username = string.Empty,
                 Password = string.Empty,
                 Fullname = string.Empty,
-                Role = RoleExtensions.SuperAdministrator,
                 EmailAddress = "test@test.com"
             }
         };
@@ -141,7 +132,6 @@ public class CreateUserUnitTests
             Username = "admin",
             Password = "Test@12345",
             Fullname = "Super Administrator",
-            Role = "administrator",
             EmailAddress = "test@test.com"
         };
         userService.Setup(e => e.IsUsernameExistAsync(request.Username, It.IsAny<CancellationToken>()))
