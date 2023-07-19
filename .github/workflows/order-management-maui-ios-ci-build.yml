@@ -1,0 +1,35 @@
+# .github/workflow/main.yml
+name: MAUI iOS Build CI
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: 
+      - src/order-management-maui/**
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - src/order-management-maui/**
+
+jobs:
+  build-ios:
+    runs-on: macos-11
+    name: iOS Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Install MAUI Workloads
+        working-directory: src/order-management-maui
+        run: |
+          dotnet workload install ios --ignore-failed-sources
+          dotnet workload install maui --ignore-failed-sources
+      - name: Restore Dependencies
+        working-directory: src/order-management-maui
+        run: dotnet restore
+      - name: Build MAUI iOS
+        working-directory: src/order-management-maui
+        run: dotnet build -c Release -f net7.0-ios --no-restore

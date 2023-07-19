@@ -1,0 +1,39 @@
+# .github/workflow/main.yml
+name: MAUI Android Build CI
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: 
+      - src/order-management-maui/**
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - src/order-management-maui/**
+
+jobs:
+  build-android:
+    runs-on: windows-2022
+    name: Android Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'microsoft'
+          java-version: '11'
+      - name: Install MAUI Workloads
+        working-directory: src/order-management-maui
+        run: |
+          dotnet workload install android --ignore-failed-sources
+          dotnet workload install maui --ignore-failed-sources
+      - name: Restore Dependencies
+        working-directory: src/order-management-maui
+        run: dotnet restore
+      - name: Build MAUI Android
+        working-directory: src/order-management-maui
+        run: dotnet build -c Release -f net7.0-android --no-restore

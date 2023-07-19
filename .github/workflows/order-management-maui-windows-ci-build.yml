@@ -1,0 +1,38 @@
+# .github/workflow/main.yml
+name: MAUI Windows Build CI
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: 
+      - src/order-management-maui/**
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - src/order-management-maui/**
+
+jobs:
+  build-windows:
+    runs-on: windows-2022
+    name: Windows Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup .NET 7
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
+        with:
+          vs-prerelease: true
+      - name: Install MAUI Workloads
+        working-directory: src/order-management-maui
+        run: |
+          dotnet workload install maui --ignore-failed-sources
+      - name: Restore Dependencies
+        working-directory: src/order-management-maui
+        run: dotnet restore
+      - name: Build MAUI Windows
+        working-directory: src/order-management-maui
+        run: msbuild OrderManagementApp.csproj -r -p:Configuration=Release -p:RestorePackages=false -p:TargetFramework=net6.0-windows10.0.19041 /p:GenerateAppxPackageOnBuild=true
