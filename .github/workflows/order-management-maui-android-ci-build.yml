@@ -27,13 +27,13 @@ jobs:
           distribution: 'microsoft'
           java-version: '11'
       - name: Install MAUI Workloads
-        working-directory: src/order-management-maui
+        working-directory: src/order-management-maui/src
         run: |
           dotnet workload install android --ignore-failed-sources
           dotnet workload install maui --ignore-failed-sources
       - name: Restore Dependencies
-        working-directory: src/order-management-maui
+        working-directory: src/order-management-maui/src
         run: dotnet restore
       - name: Build MAUI Android
-        working-directory: src/order-management-maui
+        working-directory: src/order-management-maui/src
         run: dotnet build -c Release -f net7.0-android --no-restore

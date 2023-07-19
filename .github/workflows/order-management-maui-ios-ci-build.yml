@@ -23,13 +23,13 @@ jobs:
         with:
           dotnet-version: 7.0.x
       - name: Install MAUI Workloads
-        working-directory: src/order-management-maui
+        working-directory: src/order-management-maui/src
         run: |
           dotnet workload install ios --ignore-failed-sources
           dotnet workload install maui --ignore-failed-sources
       - name: Restore Dependencies
-        working-directory: src/order-management-maui
+        working-directory: src/order-management-maui/src
         run: dotnet restore
       - name: Build MAUI iOS
-        working-directory: src/order-management-maui
+        working-directory: src/order-management-maui/src
         run: dotnet build -c Release -f net7.0-ios --no-restore

@@ -27,12 +27,12 @@ jobs:
         with:
           vs-prerelease: true
       - name: Install MAUI Workloads
-        working-directory: src/order-management-maui
+        working-directory: src/order-management-maui/src
         run: |
           dotnet workload install maui --ignore-failed-sources
       - name: Restore Dependencies
-        working-directory: src/order-management-maui
+        working-directory: src/order-management-maui/src
         run: dotnet restore
       - name: Build MAUI Windows
-        working-directory: src/order-management-maui
+        working-directory: src/order-management-maui/src
         run: msbuild OrderManagementApp.csproj -r -p:Configuration=Release -p:RestorePackages=false -p:TargetFramework=net6.0-windows10.0.19041 /p:GenerateAppxPackageOnBuild=true
