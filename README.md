@@ -1,6 +1,6 @@
 # Order Management Solution
 
-[![.NET Web API](https://github.com/vendyp/order-management/actions/workflows/order-management-api-ci-build.yml/badge.svg?branch=main)](https://github.com/vendyp/order-management/actions/workflows/order-management-api-ci-build.yml)
+[![Order Management API](https://github.com/vendyp/order-management/actions/workflows/order-management-api-ci-build.yml/badge.svg)](https://github.com/vendyp/order-management/actions/workflows/order-management-api-ci-build.yml)
 [![React Next JS (CMS App)](https://github.com/vendyp/order-management/actions/workflows/order-management-cms-ci-build.yml/badge.svg)](https://github.com/vendyp/order-management/actions/workflows/order-management-cms-ci-build.yml)
 [![MAUI Build CI](https://github.com/vendyp/order-management/actions/workflows/order-management-maui-ci-build.yml/badge.svg)](https://github.com/vendyp/order-management/actions/workflows/order-management-maui-ci-build.yml)
 [![MAUI Windows Build CI](https://github.com/vendyp/order-management/actions/workflows/order-management-maui-windows-ci-build.yml/badge.svg)](https://github.com/vendyp/order-management/actions/workflows/order-management-maui-windows-ci-build.yml)
