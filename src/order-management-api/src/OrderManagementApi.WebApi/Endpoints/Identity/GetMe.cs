@@ -1,10 +1,10 @@
 ﻿using OrderManagementApi.Core.Abstractions;
-using OrderManagementApi.Core.Modules;
 using OrderManagementApi.Shared.Abstractions.Contexts;
 using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.WebApi.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using OrderManagementApi.WebApi.Scopes;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace OrderManagementApi.WebApi.Endpoints.Identity;
@@ -13,13 +13,13 @@ public class GetMe : BaseEndpoint<UserDto>
 {
     private readonly IContext _context;
     private readonly IUserService _userService;
-    private readonly ModuleManager _moduleManager;
+    private readonly IScopeManager _scopeManager;
 
-    public GetMe(IContext context, IUserService userService, ModuleManager moduleManager)
+    public GetMe(IContext context, IUserService userService, IScopeManager scopeManager)
     {
         _context = context;
         _userService = userService;
-        _moduleManager = moduleManager;
+        _scopeManager = scopeManager;
     }
 
     [HttpGet("me")]
@@ -53,6 +53,16 @@ public class GetMe : BaseEndpoint<UserDto>
             LastUpdatedAt = user.LastUpdatedAt,
             LastUpdatedByName = user.LastUpdatedByName
         };
+
+        foreach (var item in user.UserScopes)
+            dto.Scopes.Add(item.ScopeId);
+
+        if (user.NormalizedUsername != "admin".ToUpper())
+            return Ok(dto);
+
+        dto.Scopes.Clear();
+        foreach (var item in _scopeManager.GetAllScopes())
+            dto.Scopes.Add(item);
 
         return Ok(dto);
     }

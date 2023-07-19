@@ -7,7 +7,6 @@ public class UserDto
     public UserDto()
     {
         Scopes = new List<string>();
-        Modules = new List<string>();
     }
 
     public UserDto(User user) : this()
@@ -34,5 +33,4 @@ public class UserDto
     public string? LastUpdatedByName { get; set; }
 
     public List<string> Scopes { get; set; }
-    public List<string> Modules { get; set; }
 }
