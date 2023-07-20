@@ -16,6 +16,9 @@ public static class ClaimsGenerator
         if (!string.IsNullOrWhiteSpace(user.Email))
             claims.Add(ClaimTypes.Email, new[] { user.Email });
 
+        if (user.UserScopes.Any())
+            claims.Add("scopes", user.UserScopes.Select(e => e.ScopeId));
+
         return claims;
     }
 }
