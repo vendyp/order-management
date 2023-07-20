@@ -24,11 +24,6 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 7.0.x
-    - name: Install MAUI Workloads
-      working-directory: src/order-management-maui/src
-      run: |
-        dotnet workload install android --ignore-failed-sources
-        dotnet workload install maui --ignore-failed-sources
     - name: Restore dependencies
       working-directory: src/order-management-api
       run: dotnet restore
