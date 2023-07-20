@@ -4,5 +4,6 @@ namespace OrderManagementApi.Core.Abstractions;
 
 public interface IFileRepository
 {
-    Task<FileRepository?> GetFileBydId(Guid fileRepositoryId, CancellationToken cancellationToken);
+    Task<FileRepository?> GetFileBydIdAsync(Guid fileRepositoryId, CancellationToken cancellationToken);
+    Task UpdateFileRepositorySourceAsync(Guid fileRepositoryId, string source, CancellationToken cancellationToken);
 }

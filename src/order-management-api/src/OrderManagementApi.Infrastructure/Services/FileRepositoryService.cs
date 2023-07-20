@@ -14,7 +14,7 @@ public class FileRepositoryService : IFileRepository
         _dbContext = dbContext;
     }
 
-    public Task<FileRepository?> GetFileBydId(Guid fileRepositoryId, CancellationToken cancellationToken)
+    public Task<FileRepository?> GetFileBydIdAsync(Guid fileRepositoryId, CancellationToken cancellationToken)
         => _dbContext.Set<FileRepository>()
             .Where(e => e.FileRepositoryId == fileRepositoryId)
             .Select(e => new FileRepository
@@ -27,4 +27,26 @@ public class FileRepositoryService : IFileRepository
                 IsFileDeleted = e.IsFileDeleted
             })
             .FirstOrDefaultAsync(cancellationToken);
+
+    public async Task UpdateFileRepositorySourceAsync(Guid fileRepositoryId, string source,
+        CancellationToken cancellationToken)
+    {
+        var fileRepository = await _dbContext.Set<FileRepository>()
+            .Where(e => e.FileRepositoryId == fileRepositoryId)
+            .Select(e => new FileRepository
+            {
+                FileRepositoryId = e.FileRepositoryId,
+                Source = e.Source
+            })
+            .FirstOrDefaultAsync(cancellationToken);
+
+        if (fileRepository is null)
+            throw new InvalidOperationException("File Repository is null");
+
+        _dbContext.AttachEntity(fileRepository);
+
+        fileRepository.Source = source;
+
+        await _dbContext.SaveChangesAsync(cancellationToken);
+    }
 }
