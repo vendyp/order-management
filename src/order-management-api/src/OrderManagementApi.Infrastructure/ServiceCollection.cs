@@ -4,7 +4,6 @@ using OrderManagementApi.Core.Abstractions;
 using OrderManagementApi.Infrastructure.Services;
 using OrderManagementApi.Persistence.SqlServer;
 using OrderManagementApi.Shared.Abstractions.Encryption;
-using OrderManagementApi.Shared.Infrastructure;
 using OrderManagementApi.Shared.Infrastructure.Api;
 using OrderManagementApi.Shared.Infrastructure.Clock;
 using OrderManagementApi.Shared.Infrastructure.Contexts;

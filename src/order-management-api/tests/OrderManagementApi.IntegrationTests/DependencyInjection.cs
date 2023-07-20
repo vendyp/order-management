@@ -8,7 +8,6 @@ using OrderManagementApi.Shared.Abstractions.Files;
 using OrderManagementApi.Shared.Infrastructure.Cache;
 using OrderManagementApi.Shared.Infrastructure.Clock;
 using OrderManagementApi.Shared.Infrastructure.Encryption;
-using OrderManagementApi.Shared.Infrastructure.Files.FileSystems;
 using OrderManagementApi.Shared.Infrastructure.Serialization;
 using OrderManagementApi.UnitTests.Builders;
 using OrderManagementApi.WebApi.Common;

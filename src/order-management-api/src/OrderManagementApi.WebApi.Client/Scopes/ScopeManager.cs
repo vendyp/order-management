@@ -1,4 +1,6 @@
-﻿namespace OrderManagementApi.WebApi.Client.Scopes;
+﻿using OrderManagementApi.Core.Abstractions;
+
+namespace OrderManagementApi.WebApi.Client.Scopes;
 
 public class ScopeManager
 {

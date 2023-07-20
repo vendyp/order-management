@@ -1,5 +1,4 @@
-﻿using OrderManagementApi.Core.Abstractions;
-using OrderManagementApi.Shared.Abstractions.Encryption;
+﻿using OrderManagementApi.Shared.Abstractions.Encryption;
 
 namespace OrderManagementApi.Infrastructure.Services;
 

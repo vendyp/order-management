@@ -1,10 +1,8 @@
-﻿using System.Text;
-using OrderManagementApi.Shared.Abstractions.Databases;
+﻿using OrderManagementApi.Shared.Abstractions.Databases;
 using OrderManagementApi.Shared.Abstractions.Files;
 using OrderManagementApi.WebApi.Dto;
 using OrderManagementApi.WebApi.Endpoints.FileRepository;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Shouldly;

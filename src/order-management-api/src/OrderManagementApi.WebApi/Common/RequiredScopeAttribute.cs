@@ -1,7 +1,7 @@
-﻿using OrderManagementApi.WebApi.Scopes;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using OrderManagementApi.Core.Abstractions;
 
 namespace OrderManagementApi.WebApi.Common;
 

@@ -1,6 +1,5 @@
 ﻿using OrderManagementApi.Domain;
 using OrderManagementApi.Domain.Entities;
-using OrderManagementApi.Domain.Extensions;
 using OrderManagementApi.Shared.Abstractions.Clock;
 using OrderManagementApi.Shared.Abstractions.Databases;
 using OrderManagementApi.Shared.Abstractions.Encryption;
