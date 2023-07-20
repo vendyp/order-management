@@ -24,9 +24,9 @@ public static class ServiceCollection
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddCore();
-        services.AddSharedInfrastructure();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IEmailService, EmailSenderService>();
+        services.AddScoped<IFileRepository, FileRepositoryService>();
         services.AddSingleton<ISalter, Salter>();
 
         services.AddFileSystemService();
