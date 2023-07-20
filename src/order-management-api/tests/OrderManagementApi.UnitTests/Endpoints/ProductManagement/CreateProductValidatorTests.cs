@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Moq;
+using OrderManagementApi.Core.Abstractions;
 using OrderManagementApi.UnitTests.Builders;
 using OrderManagementApi.WebApi.Endpoints.ProductManagement;
 using Shouldly;
@@ -86,7 +88,7 @@ public class CreateProductValidatorTests
     [MemberData(nameof(GetInvalidRequests))]
     public async Task CreateProduct_Given_Invalid_Request_Should_Return_BadRequest(CreateProductRequest request)
     {
-        var handler = new CreateProduct(DbContextBuilder.Create().Object);
+        var handler = new CreateProduct(DbContextBuilder.Create().Object, new Mock<IFileRepository>().Object);
 
         var result = await handler.HandleAsync(request, CancellationToken.None);
 

@@ -10,7 +10,7 @@
       },
       "distributionName": ""
     },
-    "OrderManagementApi": {
+    "Admin API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
