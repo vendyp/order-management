@@ -6,7 +6,7 @@ namespace OrderManagementApi.Domain.Entities;
 
 public sealed class FileRepository : BaseEntity
 {
-    private FileRepository()
+    public FileRepository()
     {
         FileRepositoryId = Guid.NewGuid();
         FileName = string.Empty;

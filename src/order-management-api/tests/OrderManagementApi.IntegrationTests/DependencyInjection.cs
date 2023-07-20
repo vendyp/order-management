@@ -30,5 +30,6 @@ public static class DependencyInjection
         services.AddSingleton<ISalter, Salter>();
         services.AddEncryption();
         services.AddSingleton(new ClockOptions());
+        services.AddScoped<IFileRepository, FileRepositoryService>();
     }
 }
