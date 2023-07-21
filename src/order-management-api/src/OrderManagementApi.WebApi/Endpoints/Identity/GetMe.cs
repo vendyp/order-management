@@ -4,7 +4,7 @@ using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.WebApi.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OrderManagementApi.WebApi.Scopes;
+using OrderManagementApi.WebApi.Shared.Abstractions;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace OrderManagementApi.WebApi.Endpoints.Identity;

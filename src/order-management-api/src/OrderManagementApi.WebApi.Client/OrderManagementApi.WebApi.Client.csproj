@@ -26,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\OrderManagementApi.Infrastructure\OrderManagementApi.Infrastructure.csproj" />
     <ProjectReference Include="..\OrderManagementApi.Persistence.SqlServer\OrderManagementApi.Persistence.SqlServer.csproj" />
+    <ProjectReference Include="..\OrderManagementApi.WebApi.Shared\OrderManagementApi.WebApi.Shared.csproj" />
   </ItemGroup>
   
 </Project>

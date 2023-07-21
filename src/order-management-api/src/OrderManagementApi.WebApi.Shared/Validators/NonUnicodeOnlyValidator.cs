@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace OrderManagementApi.WebApi.Client.Validators;
+namespace OrderManagementApi.WebApi.Shared.Validators;
 
 public class NonUnicodeOnlyValidator : AbstractValidator<string>
 {

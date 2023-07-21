@@ -1,4 +1,4 @@
-﻿using OrderManagementApi.Core.Abstractions;
+﻿using OrderManagementApi.WebApi.Shared.Abstractions;
 
 namespace OrderManagementApi.WebApi.Client.Scopes;
 

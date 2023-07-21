@@ -3,10 +3,10 @@ using OrderManagementApi.Shared.Abstractions.Databases;
 using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.WebApi.Common;
 using OrderManagementApi.WebApi.Endpoints.UserManagement.Scopes;
-using OrderManagementApi.WebApi.Validators;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using OrderManagementApi.WebApi.Shared.Validators;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace OrderManagementApi.WebApi.Endpoints.UserManagement;

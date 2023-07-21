@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
 using OrderManagementApi.Domain.Entities;
 
-namespace OrderManagementApi.WebApi.Endpoints.Identity.Helpers;
+namespace OrderManagementApi.WebApi.Shared.Helpers;
 
 public static class ClaimsGenerator
 {
@@ -11,13 +11,17 @@ public static class ClaimsGenerator
         {
             ["xid"] = new[] { user.UserId.ToString() },
             ["usr"] = new[] { user.Username },
+            ["scopes"] = new[] { nameof(UserScope).ToLower() }
         };
 
         if (!string.IsNullOrWhiteSpace(user.Email))
             claims.Add(ClaimTypes.Email, new[] { user.Email });
 
-        if (user.UserScopes.Any())
-            claims.Add("scopes", user.UserScopes.Select(e => e.ScopeId));
+        if (!user.UserScopes.Any()) return claims;
+
+        var list = new List<string> { nameof(UserScope).ToLower() };
+        list.AddRange(user.UserScopes.Select(e => e.ScopeId));
+        claims["scopes"] = list.ToArray();
 
         return claims;
     }

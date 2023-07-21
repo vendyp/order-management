@@ -1,7 +1,7 @@
 ﻿using FluentValidation.Results;
 using OrderManagementApi.Shared.Abstractions.Models;
 
-namespace OrderManagementApi.WebApi.Client.Validators;
+namespace OrderManagementApi.WebApi.Shared.Validators;
 
 public static class ValidationResultWrapper
 {

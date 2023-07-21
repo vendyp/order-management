@@ -1,5 +1,5 @@
-﻿using OrderManagementApi.WebApi.Validators;
-using FluentValidation;
+﻿using FluentValidation;
+using OrderManagementApi.WebApi.Shared.Validators;
 
 namespace OrderManagementApi.WebApi.Endpoints.Identity;
 

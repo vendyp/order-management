@@ -1,4 +1,4 @@
-﻿namespace OrderManagementApi.Core.Abstractions;
+﻿namespace OrderManagementApi.WebApi.Shared.Abstractions;
 
 public interface IScope
 {

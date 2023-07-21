@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace OrderManagementApi.WebApi.Validators;
+namespace OrderManagementApi.WebApi.Shared.Validators;
 
 public class IsGuidValidator : AbstractValidator<string>
 {

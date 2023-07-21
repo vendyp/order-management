@@ -4,9 +4,9 @@ using OrderManagementApi.Shared.Abstractions.Contexts;
 using OrderManagementApi.Shared.Abstractions.Databases;
 using OrderManagementApi.Shared.Abstractions.Encryption;
 using OrderManagementApi.Shared.Abstractions.Models;
-using OrderManagementApi.WebApi.Validators;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using OrderManagementApi.WebApi.Shared.Validators;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace OrderManagementApi.WebApi.Endpoints.Identity;

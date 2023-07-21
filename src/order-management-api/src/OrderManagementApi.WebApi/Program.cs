@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using OrderManagementApi.Shared.Infrastructure;
 using OrderManagementApi.WebApi.Scopes;
+using OrderManagementApi.WebApi.Shared.Abstractions;
 
 
 var builder = WebApplication.CreateBuilder(args);

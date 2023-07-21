@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OrderManagementApi.WebApi.Common;
 using OrderManagementApi.WebApi.Endpoints.UserManagement.Scopes;
-using OrderManagementApi.WebApi.Scopes;
+using OrderManagementApi.WebApi.Shared.Abstractions;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace OrderManagementApi.WebApi.Endpoints.UserManagement;

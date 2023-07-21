@@ -1,4 +1,4 @@
-﻿namespace OrderManagementApi.WebApi.Scopes;
+﻿namespace OrderManagementApi.WebApi.Shared.Abstractions;
 
 public interface IScopeManager
 {
