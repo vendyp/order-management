@@ -17,11 +17,9 @@ This repository still in-progress :)
 
 # Containing Project(s)
 
-1. Web API 
-   1. Client API
-   2. CMS/Admin API
-2. .NET MAUI Client
-3. React/next.js Application for CMS
+1. Web API [Click here](https://github.com/vendyp/order-management/tree/main/src/order-management-api)
+2. .NET MAUI [Click here](https://github.com/vendyp/order-management/tree/main/src/order-management-maui)
+3. Content Management System (NextJs) [Click here](https://github.com/vendyp/order-management/tree/main/src/order-management-cms)
 
 # Architecture
 
