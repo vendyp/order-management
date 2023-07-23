@@ -1,7 +1,6 @@
 ﻿using OrderManagementApi.Domain.Entities;
 using OrderManagementApi.Shared.Abstractions.Databases;
 using OrderManagementApi.Shared.Abstractions.Enums;
-using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.WebApi.Common;
 using OrderManagementApi.WebApi.Endpoints.UserManagement.Scopes;
 using Microsoft.AspNetCore.Authorization;

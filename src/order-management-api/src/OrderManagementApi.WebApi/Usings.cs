@@ -1,0 +1,1 @@
+﻿global using OrderManagementApi.Shared.Abstractions.Models;

@@ -1,5 +1,4 @@
 ﻿using OrderManagementApi.Shared.Abstractions.Contexts;
-using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.Shared.Infrastructure.Api;
 using Mediator;
 using Microsoft.AspNetCore.Mvc;

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OrderManagementApi.Domain.Entities;
 using OrderManagementApi.Shared.Abstractions.Databases;
-using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.WebApi.Common;
 using OrderManagementApi.WebApi.Endpoints.ProductManagement.Scopes;
 using Swashbuckle.AspNetCore.Annotations;

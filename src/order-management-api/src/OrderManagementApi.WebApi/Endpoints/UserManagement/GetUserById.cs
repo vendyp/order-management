@@ -1,5 +1,4 @@
 ﻿using OrderManagementApi.Core.Abstractions;
-using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.WebApi.Common;
 using OrderManagementApi.WebApi.Dto;
 using OrderManagementApi.WebApi.Endpoints.UserManagement.Scopes;

@@ -3,7 +3,6 @@ using OrderManagementApi.Shared.Abstractions.Clock;
 using OrderManagementApi.Shared.Abstractions.Contexts;
 using OrderManagementApi.Shared.Abstractions.Databases;
 using OrderManagementApi.Shared.Abstractions.Encryption;
-using OrderManagementApi.Shared.Abstractions.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrderManagementApi.WebApi.Shared.Validators;

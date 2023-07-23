@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OrderManagementApi.Domain.Entities;
 using OrderManagementApi.Shared.Abstractions.Databases;
-using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.Shared.Abstractions.Queries;
 using OrderManagementApi.WebApi.Common;
 using OrderManagementApi.WebApi.Dto;

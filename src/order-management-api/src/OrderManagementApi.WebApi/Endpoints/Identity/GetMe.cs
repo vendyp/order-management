@@ -1,6 +1,5 @@
 ﻿using OrderManagementApi.Core.Abstractions;
 using OrderManagementApi.Shared.Abstractions.Contexts;
-using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.WebApi.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

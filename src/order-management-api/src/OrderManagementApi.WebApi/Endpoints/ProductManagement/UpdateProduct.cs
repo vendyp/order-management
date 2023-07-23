@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using OrderManagementApi.Core.Abstractions;
 using OrderManagementApi.Domain.Entities;
 using OrderManagementApi.Shared.Abstractions.Databases;
-using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.WebApi.Common;
 using OrderManagementApi.WebApi.Endpoints.ProductManagement.Scopes;
 using OrderManagementApi.WebApi.Shared.Validators;

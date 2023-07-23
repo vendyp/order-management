@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using OrderManagementApi.Shared.Abstractions.Databases;
 using OrderManagementApi.Shared.Abstractions.Files;
-using OrderManagementApi.Shared.Abstractions.Models;
 using OrderManagementApi.WebApi.Common;
 using OrderManagementApi.WebApi.Dto;
 using OrderManagementApi.WebApi.Endpoints.ProductManagement.Scopes;
