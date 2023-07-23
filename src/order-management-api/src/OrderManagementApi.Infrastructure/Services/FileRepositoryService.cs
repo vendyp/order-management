@@ -21,32 +21,15 @@ public class FileRepositoryService : IFileRepository
             {
                 FileRepositoryId = e.FileRepositoryId,
                 FileName = e.FileName,
-                Source = e.Source,
                 FileType = e.FileType,
                 FileStoreAt = e.FileStoreAt,
                 IsFileDeleted = e.IsFileDeleted
             })
             .FirstOrDefaultAsync(cancellationToken);
 
-    public async Task UpdateFileRepositorySourceAsync(Guid fileRepositoryId, string source,
-        CancellationToken cancellationToken)
-    {
-        var fileRepository = await _dbContext.Set<FileRepository>()
-            .Where(e => e.FileRepositoryId == fileRepositoryId)
-            .Select(e => new FileRepository
-            {
-                FileRepositoryId = e.FileRepositoryId,
-                Source = e.Source
-            })
-            .FirstOrDefaultAsync(cancellationToken);
-
-        if (fileRepository is null)
-            throw new InvalidOperationException("File Repository is null");
-
-        _dbContext.AttachEntity(fileRepository);
-
-        fileRepository.Source = source;
-
-        await _dbContext.SaveChangesAsync(cancellationToken);
-    }
+    public Task<bool> FileExistsAsync(Guid fileRepositoryId, string @for, CancellationToken cancellationToken)
+        => _dbContext.Set<FileRepository>()
+            .AnyAsync(e =>
+                e.FileRepositoryId == fileRepositoryId
+                && e.For == @for, cancellationToken);
 }

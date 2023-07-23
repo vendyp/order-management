@@ -17,10 +17,14 @@ public class FileRepositoryConfiguration : BaseEntityConfiguration<FileRepositor
 
         builder.Property(e => e.FileExtension).HasMaxLength(256);
 
-        builder.Property(e => e.Source).HasMaxLength(256);
-
         builder.Property(e => e.Note).HasMaxLength(512);
 
         builder.HasIndex(e => e.UniqueFileName).IsUnique();
+
+        builder.Property(e => e.FilePath).HasMaxLength(2048);
+
+        builder.Property(e => e.For).HasMaxLength(256);
+
+        builder.HasIndex(e => e.For);
     }
 }

@@ -22,22 +22,21 @@ public class CreateProductTests
         };
 
         var dbContext = new Mock<IDbContext>();
-        var productId = Guid.NewGuid();
         dbContext.Setup(e => e.Insert(It.IsAny<Product>()))
             .Callback<Product>(entity =>
             {
-                productId = entity.ProductId;
                 entity.Name.ShouldBe(request.Name);
                 entity.Description.ShouldBe(request.Description);
                 entity.Price.ShouldBe(request.Price!.Value);
+                entity.Image.ShouldBe(request.File);
             });
 
         var fileRepositoryMock = new Mock<IFileRepository>();
 
         //because class if ref
-        var fileRepository = new FileRepository();
-        fileRepositoryMock.Setup(e => e.GetFileBydIdAsync(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(fileRepository);
+        fileRepositoryMock.Setup(e =>
+                e.FileExistsAsync(new Guid(request.File), It.IsAny<string>(), It.IsAny<CancellationToken>()))
+            .ReturnsAsync(true);
 
         var ctor = new CreateProduct(dbContext.Object, fileRepositoryMock.Object);
 
@@ -45,8 +44,6 @@ public class CreateProductTests
 
         result.ShouldNotBeNull();
         result.ShouldBeOfType<NoContentResult>();
-
-        fileRepository.Source.ShouldBe(productId.ToString());
 
         dbContext.Verify(e => e.Insert(It.IsAny<Product>()), Times.Once);
         dbContext.Verify(e => e.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);

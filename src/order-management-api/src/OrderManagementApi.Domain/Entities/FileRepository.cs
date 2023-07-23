@@ -41,11 +41,6 @@ public sealed class FileRepository : BaseEntity
     public string FileExtension { get; set; }
     public long Size { get; set; }
 
-    /// <summary>
-    /// Source meaning identifier for business process use case
-    /// </summary>
-    public string? Source { get; set; }
-
     public string? Note { get; set; }
 
     /// <summary>
@@ -62,6 +57,16 @@ public sealed class FileRepository : BaseEntity
     /// Default value is false.
     /// </summary>
     public bool IsFileDeleted { get; set; }
+
+    /// <summary>
+    /// Will be filled when FileStoreAt value is <see cref="Enums.FileStoreAt.FileSystem">FileStoreAt.FileSystem</see>
+    /// </summary>
+    public string? FilePath { get; set; }
+
+    /// <summary>
+    /// File repository context
+    /// </summary>
+    public string? For { get; set; }
 
     public void DeleteTheFile()
     {

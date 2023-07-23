@@ -41,20 +41,18 @@ public class CreateProduct : BaseEndpointWithoutResponse<CreateProductRequest>
         if (!validationResult.IsValid)
             return BadRequest(Error.Create("Invalid parameter", validationResult.Construct()));
 
-        var fileRepository = await _fileRepository.GetFileBydIdAsync(new Guid(request.File!), cancellationToken);
-        if (fileRepository is null)
+        var fileExists =
+            await _fileRepository.FileExistsAsync(new Guid(request.File!), "PRODUCT", cancellationToken);
+        if (!fileExists)
             return BadRequest("Invalid request");
-
-        _dbContext.AttachEntity(fileRepository);
 
         var newProduct = new Product
         {
             Name = request.Name,
             Description = request.Description,
-            Price = request.Price!.Value
+            Price = request.Price!.Value,
+            Image = request.File!
         };
-
-        fileRepository.Source = newProduct.ProductId.ToString();
 
         _dbContext.Insert(newProduct);
 
