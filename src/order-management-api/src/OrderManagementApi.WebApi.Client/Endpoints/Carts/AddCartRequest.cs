@@ -1,6 +1,6 @@
 ﻿namespace OrderManagementApi.WebApi.Client.Endpoints.Carts;
 
-public class AddProductRequest
+public class AddCartRequest
 {
     public Guid ProductId { get; set; }
     public int Quantity { get; set; }
